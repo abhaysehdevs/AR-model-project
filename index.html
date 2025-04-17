@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Jewelry Try-On</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Face-API.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AR Jewelry Try-On</h1>
+            <p>Try on our collection virtually!</p>
+        </header>
+
+        <main>
+            <div class="try-on-container">
+                <div class="model-container">
+                    <div class="camera-container">
+                        <video id="camera-feed" autoplay playsinline></video>
+                        <canvas id="face-overlay"></canvas>
+                        <div class="camera-overlay">
+                            <p>Camera access required for AR experience</p>
+                            <button id="start-camera" class="camera-btn">Start Camera</button>
+                        </div>
+                        <div class="face-detection-status">
+                            <span id="face-detection-message">Searching for face...</span>
+                        </div>
+                    </div>
+                    <div class="fallback-container">
+                        <img src="necklace1.png" alt="Model" id="model-image" class="model-image">
+                    </div>
+                    <div id="jewelry-overlay" class="jewelry-overlay"></div>
+                </div>
+                
+                <div class="controls">
+                    <div class="jewelry-selection">
+                        <h3>Select Jewelry</h3>
+                        <div class="jewelry-items">
+                            <button class="jewelry-btn" data-jewelry="necklace1">
+                                <img src="necklace1.png" alt="Necklace 1">
+                                <span>Pearl Necklace</span>
+                            </button>
+                            <button class="jewelry-btn" data-jewelry="necklace2">
+                                <img src="necklace2.png" alt="Necklace 2">
+                                <span>Gold Chain</span>
+                            </button>
+                            <button class="jewelry-btn" data-jewelry="earrings1">
+                                <img src="necklace3.png" alt="Earrings 1">
+                                <span>Diamond Studs</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="adjustment-controls">
+                        <h3>Adjust Position</h3>
+                        <div class="slider-container">
+                            <label for="size-slider">Size:</label>
+                            <input type="range" id="size-slider" min="50" max="150" value="100">
+                        </div>
+                        <div class="slider-container">
+                            <label for="position-slider">Position:</label>
+                            <input type="range" id="position-slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                    
+                    <div class="mode-controls">
+                        <h3>Display Mode</h3>
+                        <div class="mode-buttons">
+                            <button id="camera-mode" class="mode-btn active">Camera Mode</button>
+                            <button id="model-mode" class="mode-btn">Model Mode</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
